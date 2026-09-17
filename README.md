@@ -21,3 +21,14 @@ Then, you need to create an `Animations` attribute with an `Instance` as a type,
 ## Configuration
 A door instance can be configured with attributes
 - `Animations`: *Instance* – the animations a door must use.
+
+## Remarks
+For door interaction, you will have to write a code that will invoke the `Door:Toggle()` method. The rest of the logic will be on the module.
+
+A very short and simple example:
+```luau
+const DoorService = require(game.ServerScriptService.DoorService)
+const door = DoorService:GetDoorByModel(workspace.Door)
+if not door then return warn("No door found") end
+door:Toggle()
+```
